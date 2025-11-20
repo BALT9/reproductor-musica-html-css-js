@@ -1,103 +1,1222 @@
-/* Fuente base */
+/* ---------------------------------
+   GLOBAL
+---------------------------------- */
+html,
 body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
+  overflow-x: hidden;
+}
+
+/* ================= HERO ================= */
+.hero-section {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #111827);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  padding: 0 20px;
+}
+
+/* Texto principal */
+.hero-text {
+  text-align: center;
+  z-index: 10;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #61DAFB;
+  /* azul React, cambia según el tema */
+}
+
+.hero-info {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: #fca5a5;
+}
+
+/* Botón CTA */
+.cta-btn {
+  display: inline-block;
+  background-color: #61DAFB;
+  color: white;
+  font-weight: 600;
+  padding: 15px 40px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(97, 218, 251, 0.4);
+}
+
+.cta-btn:hover {
+  background-color: #21A1F1;
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Línea vertical inicial */
+.hero-line-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-line-dot {
+  width: 40px;
+  height: 40px;
+  background-color: #61DAFB;
+  border-radius: 50%;
+  box-shadow: 0 0 30px #61DAFBaa;
+  animation: pulse 2s infinite ease-in-out;
+  z-index: 10;
+}
+
+.hero-line {
+  width: 6px;
+  height: 100vh;
+  /* se conecta hasta la primera sección */
+  background: linear-gradient(to bottom, #61DAFB, #21A1F1);
+  border-radius: 3px;
+  margin-top: -2px;
+}
+
+/* ================= Animaciones ================= */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
   }
-  
-  /* Contenedor principal */
-  .player-container {
+
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Glow background */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  filter: blur(180px);
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .glow {
+    width: 600px;
+    height: 600px;
+    filter: blur(120px);
+  }
+}
+
+/* Tilt effect */
+.tilt {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.tilt:hover {
+  transform: translateY(-5px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.52);
+}
+
+/* ---------------------------------
+   ANIMACIONES GENERALES
+---------------------------------- */
+
+/* Línea animada */
+@keyframes growLine {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+
+  to {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+.animate-line {
+  animation: growLine 1.2s ease forwards;
+}
+
+/* Fade + slide */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-slide {
+  opacity: 0;
+  animation: fadeSlide .9s ease forwards;
+}
+
+/* Bounce loop */
+@keyframes bounceLoop {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.bounce {
+  animation: bounceLoop 1.4s ease-in-out infinite;
+}
+
+/* Escritura general */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
     width: 100%;
-    max-width: 400px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    padding: 30px 20px;
-    backdrop-filter: blur(8px);
   }
-  
-  /* Título */
-  .player h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.6em;
-    font-weight: 600;
+}
+
+/* Cursor parpadeo */
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
-  
-  /* Selector */
-  input[type="file"] {
-    display: block;
-    margin: 0 auto 15px auto;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    text-align: center;
+}
+
+/* ---------------------------------
+   TERMINAL GENERAL
+---------------------------------- */
+#courseDetails {
+  background-color: #111;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.typing {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #F1502F;
+  animation: typing 2s steps(30, end) forwards,
+    blink 0.7s step-end infinite alternate;
+}
+
+#courseDetails p.typing:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#courseDetails p.typing:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+#courseDetails p.typing:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+#courseDetails p.typing:nth-of-type(4) {
+  animation-delay: 6s;
+}
+
+#courseDetails p.typing:nth-of-type(5) {
+  animation-delay: 8s;
+}
+
+.command {
+  color: #F1502F;
+  font-weight: bold;
+}
+
+.desc {
+  color: #9ca3af;
+  font-size: 0.85em;
+}
+
+/* ---------------------------------
+   DOCKER
+---------------------------------- */
+
+.command-docker {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+@keyframes blink-docker {
+  50% {
+    border-color: transparent;
   }
-  
-  input[type="file"]::-webkit-file-upload-button {
-    background: #555;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
+}
+
+.typing-docker {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #1D63ED;
+  animation: typing 2s steps(30, end) forwards,
+    blink-docker 0.7s step-end infinite alternate;
+}
+
+#courseDetails p.typing-docker:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#courseDetails p.typing-docker:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+#courseDetails p.typing-docker:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+#courseDetails p.typing-docker:nth-of-type(4) {
+  animation-delay: 6s;
+}
+
+#courseDetails p.typing-docker:nth-of-type(5) {
+  animation-delay: 8s;
+}
+
+.line-docker {
+  background: #1D63ED;
+}
+
+/* ---------------------------------
+   COLORES TECNOLOGÍAS
+---------------------------------- */
+.color-git {
+  color: #F1502F;
+}
+
+.bg-git {
+  background-color: #F1502F;
+}
+
+.color-docker {
+  color: #0989ea;
+}
+
+.bg-docker {
+  background-color: #1D63ED;
+}
+
+.bg-docker-hover:hover {
+  background-color: #1547B8;
+}
+
+.color-mysql {
+  color: #facc15;
+}
+
+.bg-mysql {
+  background-color: #facc15;
+}
+
+.bg-mysql-hover:hover {
+  background-color: #d4b313;
+}
+
+/* ---------------------------------
+   MYSQL
+---------------------------------- */
+
+.command-mysql {
+  color: #facc15;
+  font-weight: bold;
+}
+
+.typing-mysql {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #facc15;
+  animation: typing 2s steps(30, end) forwards,
+    blink-mysql 0.7s step-end infinite alternate;
+}
+
+@keyframes blink-mysql {
+  50% {
+    border-color: transparent;
   }
-  
-  #song-title {
-    text-align: center;
-    font-size: 14px;
-    margin: 10px 0 15px 0;
-    word-break: break-word;
-  }
-  
-  /* Reproductor */
-  audio {
+}
+
+#courseDetails p.typing-mysql:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#courseDetails p.typing-mysql:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+#courseDetails p.typing-mysql:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+#courseDetails p.typing-mysql:nth-of-type(4) {
+  animation-delay: 6s;
+}
+
+#courseDetails p.typing-mysql:nth-of-type(5) {
+  animation-delay: 8s;
+}
+
+/* ==========================
+   POSTGRESQL STYLES
+========================== */
+
+/* Color principal PostgreSQL */
+.color-postgresql {
+  color: #008bb9;
+}
+
+/* Fondo de botones PostgreSQL */
+.bg-postgresql {
+  background-color: #008bb9;
+}
+
+.bg-postgresql:hover {
+  background-color: #00a0d4;
+}
+
+/* Líneas, sombras e indicadores */
+.line-postgresql {
+  background: linear-gradient(to bottom, #00a0d4, #008bb9);
+}
+
+.shadow-postgresql {
+  box-shadow: 0 0 25px #008bb9aa;
+}
+
+/* Comandos PostgreSQL */
+.command-postgresql {
+  color: #00a0d4;
+  font-weight: bold;
+}
+
+.typing-postgres {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00a0d4;
+  animation: typing 2s steps(30, end) forwards,
+    blink-docker 0.7s step-end infinite alternate;
+}
+
+#courseDetails p.typing-postgres:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#courseDetails p.typing-postgres:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+#courseDetails p.typing-postgres:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+#courseDetails p.typing-postgres:nth-of-type(4) {
+  animation-delay: 6s;
+}
+
+#courseDetails p.typing-postgres:nth-of-type(5) {
+  animation-delay: 8s;
+}
+
+/* ==========================
+   MONGODB STYLES
+========================== */
+
+/* Color principal MongoDB */
+.color-mongo {
+  color: #47A248;
+}
+
+/* Fondo de botones MongoDB */
+.bg-mongo {
+  background-color: #47A248;
+}
+
+.bg-mongo:hover {
+  background-color: #58c85c;
+}
+
+/* Líneas, sombras e indicadores */
+.line-mongo {
+  background: linear-gradient(to bottom, #58c85c, #47A248);
+}
+
+.shadow-mongo {
+  box-shadow: 0 0 25px #47A248aa;
+}
+
+/* Comandos MongoDB */
+.command-mongo {
+  color: #58c85c;
+  font-weight: bold;
+}
+
+.mongo-line .desc {
+  color: #9ca3af;
+  /* gris claro (Tailwind gray-400) */
+}
+
+/* Animación de escritura */
+.typing-mongo {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #58c85c;
+  animation: typing 2s steps(30, end) forwards,
+    blink-docker 0.7s step-end infinite alternate;
+}
+
+/* Delays progresivos para animación */
+#courseDetails p.typing-mongo:nth-of-type(1) {
+  animation-delay: 0s;
+}
+
+#courseDetails p.typing-mongo:nth-of-type(2) {
+  animation-delay: 2s;
+}
+
+#courseDetails p.typing-mongo:nth-of-type(3) {
+  animation-delay: 4s;
+}
+
+#courseDetails p.typing-mongo:nth-of-type(4) {
+  animation-delay: 6s;
+}
+
+#courseDetails p.typing-mongo:nth-of-type(5) {
+  animation-delay: 8s;
+}
+
+/* ==========================
+   LARAVEL STYLES CORREGIDOS
+========================== */
+
+/* Color principal Laravel */
+.color-laravel {
+  color: #FF2D20;
+}
+
+/* Fondo de botones Laravel */
+.bg-laravel {
+  background-color: #FF2D20;
+}
+
+.bg-laravel:hover {
+  background-color: #FF5040;
+}
+
+/* Líneas, sombras e indicadores */
+.line-laravel {
+  background: linear-gradient(to bottom, #FF5040, #FF2D20);
+}
+
+.shadow-laravel {
+  box-shadow: 0 0 25px #FF2D20aa;
+}
+
+/* Comandos Laravel */
+.command-laravel {
+  color: #FF5040;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(30, end) forwards;
+  position: relative;
+}
+
+/* Barra de escritura con altura igual a la letra */
+.command-laravel::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  /* grosor de la barra */
+  height: 1em;
+  /* altura igual a la letra */
+  background-color: #FF5040;
+  margin-left: 2px;
+  animation: blink-laravel 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.laravel-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos para animación */
+#courseDetails p:nth-of-type(1) .command-laravel {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-laravel {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-laravel {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-laravel {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-laravel {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes typing {
+  to {
     width: 100%;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    background-color: #222;
   }
-  
-  /* Botones */
-  .controls {
-    display: flex;
-    justify-content: space-around;
+}
+
+@keyframes blink-laravel {
+
+  0%,
+  100% {
+    opacity: 0;
   }
-  
-  button {
-    background: #444;
-    border: none;
-    padding: 12px 18px;
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+
+  50% {
+    opacity: 1;
   }
-  
-  button:hover {
-    background: #666;
-    transform: scale(1.05);
+}
+
+/* ==========================
+   SPRING BOOT STYLES
+========================== */
+
+/* Color principal Spring Boot */
+.color-spring {
+  color: #6DB33F;
+}
+
+/* Fondo de botones Spring Boot */
+.bg-spring {
+  background-color: #6DB33F;
+}
+
+.bg-spring:hover {
+  background-color: #7AC143;
+}
+
+/* Líneas, sombras e indicadores */
+.line-spring {
+  background: linear-gradient(to bottom, #7AC143, #6DB33F);
+}
+
+.shadow-spring {
+  box-shadow: 0 0 25px #6DB33Faa;
+}
+
+/* Comandos Spring Boot */
+.command-spring {
+  color: #7AC143;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(60, end) forwards;
+  /* steps aumentado para comandos largos */
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-spring::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #7AC143;
+  margin-left: 2px;
+  animation: blink-spring 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.spring-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos para todos los comandos */
+#courseDetails p:nth-of-type(1) .command-spring {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-spring {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-spring {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-spring {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-spring {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes typing {
+  to {
+    width: 100%;
   }
-  
-  /* Responsividad */
-  @media (max-width: 480px) {
-    .player h2 {
-      font-size: 1.4em;
-    }
-  
-    button {
-      padding: 10px 14px;
-      font-size: 16px;
-    }
+}
+
+@keyframes blink-spring {
+
+  0%,
+  100% {
+    opacity: 0;
   }
-  
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   NESTJS STYLES
+========================== */
+
+/* Color principal NestJS */
+.color-nest {
+  color: #E0234E;
+}
+
+/* Fondo de botones NestJS */
+.bg-nest {
+  background-color: #E0234E;
+}
+
+.bg-nest:hover {
+  background-color: #F03A5F;
+}
+
+/* Líneas, sombras e indicadores */
+.line-nest {
+  background: linear-gradient(to bottom, #F03A5F, #E0234E);
+}
+
+.shadow-nest {
+  box-shadow: 0 0 25px #E0234Eaa;
+}
+
+/* Comandos NestJS */
+.command-nest {
+  color: #F03A5F;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(60, end) forwards;
+  /* steps aumentado para comandos largos */
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-nest::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #F03A5F;
+  margin-left: 2px;
+  animation: blink-nest 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.nest-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos para todos los comandos */
+#courseDetails p:nth-of-type(1) .command-nest {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-nest {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-nest {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-nest {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-nest {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+
+  /* Expande el span completo, la barra sigue al final */
+}
+
+@keyframes blink-nest {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   DOTNET CORE STYLES
+========================== */
+
+/* Color principal .NET Core */
+.color-dotnet {
+  color: #7D5CF3;
+}
+
+/* Fondo de botones .NET Core */
+.bg-dotnet {
+  background-color: #7D5CF3;
+}
+
+.bg-dotnet:hover {
+  background-color: #7D5CF3;
+}
+
+/* Líneas, sombras e indicadores */
+.line-dotnet {
+  background: linear-gradient(to bottom, #6C44E2, #512BD4);
+}
+
+.shadow-dotnet {
+  box-shadow: 0 0 25px #512BD4aa;
+}
+
+/* Comandos .NET Core */
+.command-dotnet {
+  color: #6C44E2;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(30, end) forwards;
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-dotnet::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #6C44E2;
+  margin-left: 2px;
+  animation: blink-dotnet 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.dotnet-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos */
+#courseDetails p:nth-of-type(1) .command-dotnet {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-dotnet {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-dotnet {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-dotnet {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-dotnet {
+  animation-delay: 8s;
+}
+
+
+/* Animaciones */
+@keyframes blink-dotnet {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ==========================
+   FRONTEND STYLES
+========================== */
+
+/* Colores React */
+.color-react {
+  color: #61DAFB;
+}
+
+/* Fondo de botones */
+.bg-react {
+  background-color: #61DAFB;
+}
+
+.bg-react:hover {
+  background-color: #21A1F1;
+}
+
+/* Líneas y sombras */
+.line-react {
+  background: linear-gradient(to bottom, #61DAFB, #21A1F1);
+}
+
+.shadow-react {
+  box-shadow: 0 0 25px #61DAFBaa;
+}
+
+/* Comandos */
+.command-react {
+  color: #61DAFB;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(30, end) forwards;
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-react::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #61DAFB;
+  margin-left: 2px;
+  animation: blink-react 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.react-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos */
+#courseDetails p:nth-of-type(1) .command-react {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-react {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-react {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-react {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-react {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes blink-react {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ==========================
+   ANGULAR (ROSADO) STYLES
+========================== */
+
+/* Color principal Angular rosado */
+.color-angular {
+  color: #dd00bcff;
+}
+
+/* Fondo de botones */
+.bg-angular {
+  background-color: #dd00bcff;
+}
+
+.bg-angular:hover {
+  background-color: #dd00bcff;
+}
+
+/* Líneas y sombras */
+.line-angular {
+  background: linear-gradient(to bottom, #dd00bcff, #dd00bcff);
+}
+
+.shadow-angular {
+  box-shadow: 0 0 25px #dd00bcff;
+}
+
+/* Comandos */
+.command-angular {
+  color: #dd00bcff;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing-angular 2s steps(30, end) forwards;
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-angular::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #dd00bcff;
+  margin-left: 2px;
+  animation: blink-angular 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.angular-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos */
+#courseDetails p:nth-of-type(1) .command-angular {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-angular {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-angular {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-angular {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-angular {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes blink-angular {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing-angular {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ==========================
+   VUE (VERDE OFICIAL) STYLES
+========================== */
+
+/* Color principal Vue */
+.color-vue {
+  color: #42b883;
+}
+
+/* Fondo de botones */
+.bg-vue {
+  background-color: #42b883;
+}
+
+.bg-vue:hover {
+  background-color: #3aa176;
+}
+
+/* Líneas y sombras */
+.line-vue {
+  background: linear-gradient(to bottom, #42b883, #3aa176);
+}
+
+.shadow-vue {
+  box-shadow: 0 0 25px #42b883aa;
+}
+
+/* Comandos */
+.command-vue {
+  color: #42b883;
+  font-weight: bold;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing-vue 2s steps(30, end) forwards;
+  position: relative;
+}
+
+/* Barra de escritura */
+.command-vue::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #42b883;
+  margin-left: 2px;
+  animation: blink-vue 0.7s step-end infinite alternate;
+  vertical-align: text-bottom;
+}
+
+.vue-line .desc {
+  color: #9ca3af;
+}
+
+/* Delays progresivos */
+#courseDetails p:nth-of-type(1) .command-vue {
+  animation-delay: 0s;
+}
+
+#courseDetails p:nth-of-type(2) .command-vue {
+  animation-delay: 2s;
+}
+
+#courseDetails p:nth-of-type(3) .command-vue {
+  animation-delay: 4s;
+}
+
+#courseDetails p:nth-of-type(4) .command-vue {
+  animation-delay: 6s;
+}
+
+#courseDetails p:nth-of-type(5) .command-vue {
+  animation-delay: 8s;
+}
+
+/* Animaciones */
+@keyframes blink-vue {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes typing-vue {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}

@@ -1,32 +1,1301 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reproductor de Música</title>
-  <link rel="stylesheet" href="estilos.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Ruta Full Stack</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
-<body>
 
-  <div class="player-container">
-    <div class="player">
-      <h2>🎶 Reproductor Personal</h2>
-      
-      <input type="file" id="fileInput" accept="audio/*">
-      <p id="song-title">Selecciona una canción para comenzar</p>
+<body class="bg-gray-950 text-white">
 
-      <audio id="audio" controls></audio>
+    <!-- ================= Hero Section ================= -->
+    <section
+        class="hero-section w-full h-screen flex flex-col justify-center items-center bg-gray-900 relative overflow-hidden">
 
-      <div class="controls">
-        <button id="play">▶️</button>
-        <button id="pause">⏸️</button>
-        <button id="stop">⏹️</button>
-      </div>
-    </div>
-  </div>
+        <!-- Líneas decorativas (alineadas con roadmap) -->
+        <div
+            class="hero-lines absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500">
+        </div>
 
-  <script src="script.js"></script>
+        <!-- Contenedor principal -->
+        <div class="hero-content text-center relative z-10 max-w-4xl px-4">
+
+            <!-- Título principal -->
+            <h1 class="hero-title text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+                Curso de Especialización en:<br>
+                <span class="text-cyan-400">Desarrollo Web FullStack</span>
+            </h1>
+
+            <!-- Subtítulo profesional -->
+            <p class="hero-subtitle mb-8">
+                <span class="status-live">En vivo</span> &nbsp;|&nbsp;
+                <span class="date">24 de Noviembre</span> &nbsp;|&nbsp;
+                <span class="duration">3.5 meses</span> &nbsp;|&nbsp;
+                <strong class="limited">Cupo Limitado</strong>
+            </p>
+
+            <!-- Botón de inscripción -->
+            <a href="#inscribete"
+                class="cta-btn inline-block px-8 py-4 bg-cyan-400 text-gray-900 font-semibold rounded-lg shadow-lg transition-all duration-300 hover:bg-blue-500 hover:shadow-blue-500">
+                Inscríbete Ahora
+            </a>
+
+        </div>
+
+        <!-- Fondo difuso decorativo -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-cyan-500/20 via-blue-500/10 to-transparent blur-3xl pointer-events-none">
+        </div>
+
+    </section>
+
+    <!-- ================= Estilos ================= -->
+    <style>
+        .hero-section {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Líneas verticales tipo roadmap */
+        .hero-lines {
+            width: 4px;
+            border-radius: 2px;
+        }
+
+        /* Título principal */
+        .hero-title {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Subtítulo */
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            /* gris claro */
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        /* Colores específicos para resaltar info */
+        .status-live {
+            color: #f87171;
+            /* rojo suave */
+            font-weight: 700;
+        }
+
+        .date {
+            color: #facc15;
+            /* amarillo */
+            font-weight: 600;
+        }
+
+        .duration {
+            color: #34d399;
+            /* verde */
+            font-weight: 600;
+        }
+
+        .limited {
+            color: #f472b6;
+            /* rosa destacado */
+            font-weight: 700;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Animación del "Cupo Limitado" */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        /* Botón de inscripción */
+        .cta-btn {
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        /* Fondo difuso */
+        .hero-section>div.absolute.inset-0 {
+            z-index: 0;
+        }
+    </style>
+
+
+    <!-- ===============   SECCIÓN 1   ====================== -->
+    <section class="overflow-hidden roadmap-section relative min-h-screen flex items-center px-6 py-24">
+
+        <!-- GLOW amarillo -->
+        <div class="glow bg-orange-500"></div>
+
+        <!-- Línea vertical -->
+        <div class="line absolute left-1/2 top-0 w-1 h-0 opacity-0 
+          bg-git rounded-full
+          -translate-x-1/2"></div>
+
+        <div class="mx-auto w-full max-w-5xl flex flex-col md:flex-row items-center md:gap-16 gap-10">
+
+            <!-- Texto principal -->
+            <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                <!-- Pseudo fondo difuso solo en móviles -->
+                <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                    <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                    Modulo 1: <span class="color-git">Git <span class="text-white">y</span> Github</span>
+                </h2>
+                <p class="text-gray-300 md:text-lg text-sm max-w-md mx-auto md:ml-auto relative z-10 mb-6">
+                    Aprende control de versiones <br>y trabajo colaborativo con git
+                </p>
+
+                <!-- Botón de llamada a la acción -->
+                <a href="#inscribete"
+                    class="relative z-10 inline-block px-6 py-3 bg-git text-white font-semibold rounded-lg transition-colors duration-300">
+                    Inscribete Ahora
+                </a>
+            </div>
+
+            <!-- Card del curso -->
+            <div class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                <!-- Círculo indicador -->
+                <span class="absolute top-1/2 -translate-y-1/2 
+        left-1/2 md:left-0
+        w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+        -translate-x-1/2 md:translate-x-0"></span>
+
+                <div
+                    class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                    <!-- Logos de Git y GitHub -->
+                    <div class="flex justify-center mt-3 w-full">
+
+                        <!-- LOGO GIT -->
+                        <div class="relative p-1 md:p-2 rounded-xl flex items-center justify-center w-30 h-30
+            transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                            <!-- Halo difuso -->
+                            <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain.svg" alt="Git"
+                                class="w-20 h-20">
+                        </div>
+
+                    </div>
+
+                    <!-- Comandos del curso siempre visibles -->
+                    <div id="courseDetails"
+                        class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-4 rounded-md font-mono text-xs md:text-sm">
+
+                        <!-- Circulitos de la consola -->
+                        <div class="flex gap-2 p-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        </div>
+
+                        <!-- Comandos -->
+                        <p class="typing"><span class="desc">Ver estado de los archivos:</span> <span
+                                class="command">git status</span></p>
+                        <p class="typing"><span class="desc">Añadir cambios:</span> <span class="command">git add
+                                &lt;archivo&gt;</span></p>
+                        <p class="typing"><span class="desc">Confirmar cambios:</span> <span class="command">git commit
+                                -m "mensaje"</span></p>
+                        <p class="typing"><span class="desc">Subir cambios a GitHub:</span> <span class="command">git
+                                push</span></p>
+                        <p class="typing"><span class="desc">Actualizar repositorio local:</span> <span
+                                class="command">git pull</span></p>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- ===============   SECCIÓN 2 — Docker ====================== -->
+    <section class="overflow-hidden roadmap-section relative min-h-screen flex items-center px-6 py-24">
+
+        <!-- GLOW azul -->
+        <div class="glow bg-blue-500"></div>
+
+        <!-- Línea vertical -->
+        <div class="line line-docker absolute left-1/2 top-0 w-1 h-0 opacity-0 
+      rounded-full -translate-x-1/2"></div>
+
+        <div class="mx-auto w-full max-w-5xl flex flex-col md:flex-row-reverse items-center md:gap-16 gap-10">
+            <!-- Nota: Solo se cambió md:flex-row a md:flex-row-reverse -->
+
+            <!-- Texto principal -->
+            <div class="fade-slide text-center md:text-left md:flex-1 relative">
+                <!-- Pseudo fondo difuso solo en móviles -->
+                <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                    <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                    Modulo 2: <span class="color-docker">Docker</span>
+                </h2>
+                <p class="text-gray-300 md:text-lg text-sm max-w-md mx-auto md:ml-auto relative z-10 mb-6">
+                    Aprende a contenerizar aplicaciones <br>y administrar contenedores de manera eficiente
+                </p>
+
+                <!-- Botón de llamada a la acción -->
+                <a href="#inscribete"
+                    class="relative z-10 inline-block px-6 py-3 bg-docker bg-docker-hover text-white font-semibold rounded-lg transition-colors duration-300">
+                    Inscribete Ahora
+                </a>
+
+            </div>
+
+            <!-- Card del curso -->
+            <div class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                <!-- Círculo indicador -->
+                <span class="absolute top-1/2 -translate-y-1/2 
+                left-1/2 md:left-0
+                w-7 h-7 rounded-full color-docker shadow-xl shadow-blue-500/60
+                -translate-x-1/2 md:translate-x-0"></span>
+
+                <div
+                    class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+
+                    <!-- Logo de Docker -->
+                    <div class="flex justify-center mt-3 w-full">
+                        <div class="relative p-1 md:p-2 rounded-xl flex items-center justify-center w-30 h-30
+                        transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                            <!-- Halo difuso -->
+                            <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                            <img src="./img/docker-mark-blue.png" alt="Docker" class="max-w-20 max-h-20 object-contain">
+                        </div>
+                    </div>
+
+                    <!-- Comandos del curso siempre visibles -->
+                    <div id="courseDetails"
+                        class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-4 rounded-md font-mono text-xs md:text-sm">
+                        <!-- Circulitos de la consola -->
+                        <div class="flex gap-2 p-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        </div>
+
+                        <p class="docker-line"><span class="desc">Ver contenedores activos:</span> <span
+                                class="command-docker">docker ps</span></p>
+                        <p class="docker-line"><span class="desc">Iniciar contenedor:</span> <span
+                                class="command-docker">docker run &lt;imagen&gt;</span></p>
+                        <p class="docker-line"><span class="desc">Detener contenedor:</span> <span
+                                class="command-docker">docker stop &lt;id&gt;</span></p>
+                        <p class="docker-line"><span class="desc">Eliminar contenedor:</span> <span
+                                class="command-docker">docker rm &lt;id&gt;</span></p>
+                        <p class="docker-line"><span class="desc">Ver imágenes locales:</span> <span
+                                class="command-docker">docker images</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===============   SLIDER DE SECCIONES   ====================== -->
+    <section class="overflow-hidden roadmap-section relative min-h-screen flex items-center px-6 py-24">
+
+        <!-- GLOW amarillo -->
+        <div class="glow bg-yellow-500"></div>
+
+        <!-- Línea vertical -->
+        <div class="line absolute left-1/2 top-0 w-1 h-0 opacity-0 
+              bg-gradient-to-b from-yellow-500 to-orange-500 rounded-full
+              -translate-x-1/2"></div>
+
+        <!-- Contenedor del slider -->
+        <div class="slider-wrapper relative w-full overflow-hidden">
+
+            <div class="slider flex transition-transform duration-500">
+
+                <!-- Slide MySQL -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+
+                        <!-- Pseudo fondo difuso solo en móviles -->
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 3: <span class="text-white">Base de Datos</span><br> <span class="color-mysql">My
+                                SQL</span>
+                        </h2>
+
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Analiza y diseña <br> Bases de Datos relacionales
+                            <span class="color-mysql font-semibold">(SQL)</span>
+                        </p>
+
+                        <!-- Botón de llamada a la acción -->
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                        left-1/2 md:left-0
+                        w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                        -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Git y GitHub -->
+                            <div class="flex justify-center mt-3 w-full">
+
+                                <!-- LOGO MYSQL -->
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/logo-mysql-170x115.png" alt="Docker"
+                                        class="w-28 max-h-36 object-contain">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-4 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos MySQL -->
+                                <p class="mysql-line"><span class="desc">Conectar a MySQL:</span> <span
+                                        class="command-mysql">mysql -u usuario -p</span></p>
+                                <p class="mysql-line"><span class="desc">Mostrar bases de datos:</span> <span
+                                        class="command-mysql">SHOW DATABASES;</span></p>
+                                <p class="mysql-line"><span class="desc">Seleccionar base de datos:</span> <span
+                                        class="command-mysql">USE nombre_db;</span></p>
+                                <p class="mysql-line"><span class="desc">Mostrar tablas:</span> <span
+                                        class="command-mysql">SHOW TABLES;</span></p>
+                                <p class="mysql-line"><span class="desc">Describir tabla:</span> <span
+                                        class="command-mysql">DESCRIBE tabla;</span></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide PostgreSQL -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+
+                        <!-- Pseudo fondo difuso solo en móviles -->
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 3: <span class="text-white">Base de Datos</span><br> <span
+                                class="color-postgresql">PostgreSQL</span>
+                        </h2>
+
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Analiza y diseña <br> Bases de Datos relacionales
+                            <span class="color-postgresql font-semibold">(SQL)</span>
+                        </p>
+
+                        <!-- Botón de llamada a la acción -->
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                        left-1/2 md:left-0
+                        w-7 h-7 rounded-full bg-postgresql shadow-xl shadow-yellow-500/60
+                        -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Git y GitHub -->
+                            <div class="flex justify-center mt-3 w-full">
+
+                                <!-- LOGO MYSQL -->
+                                <div class="relative p-1 md:p-2 rounded-xl flex items-center justify-center w-30 h-30
+            transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/postgresql.png" alt="Docker" class="max-w-15 h-16 object-contain">
+                                </div>
+
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-4 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos PostgreSQL -->
+                                <p class="postgres-line">
+                                    <span class="desc">Conectar a PostgreSQL:</span>
+                                    <span class="command-postgresql">psql -U usuario -d BD</span>
+                                </p>
+
+                                <p class="postgres-line">
+                                    <span class="desc">Listar bases de datos:</span>
+                                    <span class="command-postgresql">\l</span>
+                                </p>
+
+                                <p class="postgres-line">
+                                    <span class="desc">Conectar a una base:</span>
+                                    <span class="command-postgresql">\c nombre_db</span>
+                                </p>
+
+                                <p class="postgres-line">
+                                    <span class="desc">Mostrar tablas:</span>
+                                    <span class="command-postgresql">\dt</span>
+                                </p>
+
+                                <p class="postgres-line">
+                                    <span class="desc">Describir tabla:</span>
+                                    <span class="command-postgresql">\d tabla</span>
+                                </p>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide MongoDB -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+
+                        <!-- Pseudo fondo difuso solo en móviles -->
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 3: <span class="text-white">Base de Datos</span><br> <span class="color-mongo">Mongo
+                                DB</span>
+                        </h2>
+
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Analiza y diseña <br> Bases de Datos No Relacionales
+                            <span class="color-mongo font-semibold">(SQL)</span>
+                        </p>
+
+                        <!-- Botón de llamada a la acción -->
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                        left-1/2 md:left-0
+                        w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                        -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <div class="flex justify-center mt-2 w-full">
+
+                                <!-- LOGO mongo -->
+                                <div class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35
+            transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/MongoDB.png" alt="Mongo" class="max-w-20 h-18 object-contain">
+                                </div>
+
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-4 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos MongoDB -->
+                                <p class="mongo-line"><span class="desc">Conectar a MongoDB:</span> <span
+                                        class="command-mongo">mongo</span></p>
+
+                                <p class="mongo-line"><span class="desc">Mostrar bases de datos:</span>
+                                    <span class="command-mongo">show dbs;</span>
+                                </p>
+
+                                <p class="mongo-line"><span class="desc">Seleccionar base de datos:</span>
+                                    <span class="command-mongo">use nombre_db;</span>
+                                </p>
+
+                                <p class="mongo-line"><span class="desc">Mostrar colecciones:</span>
+                                    <span class="command-mongo">show collections;</span>
+                                </p>
+
+                                <p class="mongo-line">
+                                    <span class="desc">Ver documentos:</span>
+                                    <span class="command-mongo">db.coleccion.find().pretty();</span>
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <button id="prevSlide"
+                class="prev-slide hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10094;
+            </button>
+            <button id="nextSlide"
+                class="next-slide hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10095;
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="overflow-hidden roadmap-section backend-section relative min-h-screen flex items-center px-6 py-24">
+
+        <!-- Glow dinámico -->
+        <div class="glow"></div>
+
+        <!-- Línea vertical -->
+        <div class="line absolute left-1/2 top-0 w-1 h-0 opacity-0 rounded-full -translate-x-1/2"></div>
+
+        <!-- Contenedor del slider -->
+        <div class="slider-wrapper relative w-full overflow-hidden">
+
+            <div class="slider flex transition-transform duration-500">
+
+                <!-- Slide Laravel -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 4:
+                            <span class="color-laravel">Laravel</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye aplicaciones web robustas con <span class="color-laravel font-semibold">PHP</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                        left-1/2 md:left-0
+                        w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                        -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Git y GitHub -->
+                            <div class="flex justify-center mt-3 w-full">
+
+                                <!-- LOGO MYSQL -->
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/Laravel.png" alt="Laravel" class="w-20 h-20">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos Laravel -->
+                                <p class="laravel-line">
+                                    <span class="desc">Crear un nuevo proyecto Laravel:</span><br>
+                                    <span class="command-laravel">composer create-project laravel/laravel
+                                        nombre_proyecto</span>
+                                </p>
+
+                                <p class="laravel-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-laravel">cd nombre_proyecto</span>
+                                </p>
+
+                                <p class="laravel-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-laravel">php artisan serve</span>
+                                </p>
+
+                                <p class="laravel-line">
+                                    <span class="desc">Ver rutas definidas:</span><br>
+                                    <span class="command-laravel">php artisan route:list</span>
+                                </p>
+
+                                <p class="laravel-line">
+                                    <span class="desc">Crear un controlador:</span><br>
+                                    <span class="command-laravel">php artisan make:controller NombreControlador</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide Spring -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 4:
+                            <span class="color-spring">Spring Boot</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye aplicaciones web robustas con <span class="color-spring font-semibold">Java</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                     left-1/2 md:left-0
+                     w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                     -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Spring Boot -->
+                            <div class="flex justify-center mt-3 w-full">
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/spring-boot-oficial.svg" alt="Spring Boot" class="w-20 h-20">
+                                </div>
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos Spring Boot -->
+                                <p class="spring-line">
+                                    <span class="desc">Crear un nuevo proyecto Spring Boot:</span><br>
+                                    <span class="command-spring">curl https://start.spring.io/starter.zip -d
+                                        dependencies=web -d name=demo -o demo.zip</span>
+                                </p>
+
+                                <p class="spring-line">
+                                    <span class="desc">Descomprimir el proyecto:</span><br>
+                                    <span class="command-spring">unzip demo.zip -d demo</span>
+                                </p>
+
+                                <p class="spring-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-spring">cd demo</span>
+                                </p>
+
+                                <p class="spring-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-spring">./mvnw spring-boot:run</span>
+                                </p>
+
+                                <p class="spring-line">
+                                    <span class="desc">Construir proyecto:</span><br>
+                                    <span class="command-spring">./mvnw clean package</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide NestJS -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 4:
+                            <span class="color-nest">Node - NestJS</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye aplicaciones web robustas con <span
+                                class="color-nest font-semibold">Node.js</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                     left-1/2 md:left-0
+                     w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                     -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logo NestJS -->
+                            <div class="flex justify-center mt-3 w-full">
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/nest-ofi.svg" alt="NestJS" class="w-20 h-20">
+                                </div>
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos NestJS -->
+                                <p class="nest-line">
+                                    <span class="desc">Crear un nuevo proyecto NestJS:</span><br>
+                                    <span class="command-nest">nest new nombre_proyecto</span>
+                                </p>
+
+                                <p class="nest-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-nest">cd nombre_proyecto</span>
+                                </p>
+
+                                <p class="nest-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-nest">npm run start</span>
+                                </p>
+
+                                <p class="nest-line">
+                                    <span class="desc">Generar un módulo:</span><br>
+                                    <span class="command-nest">nest generate module nombre_modulo</span>
+                                </p>
+
+                                <p class="nest-line">
+                                    <span class="desc">Generar un controlador:</span><br>
+                                    <span class="command-nest">nest generate controller nombre_controlador</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Slide .NET Core -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo :
+                            <span class="color-dotnet">.NET Core</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye aplicaciones con <span class="color-dotnet font-semibold">C# y .NET Core</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-blue-700 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                     left-1/2 md:left-0
+                     w-7 h-7 rounded-full bg-blue-700 shadow-xl shadow-blue-500/60
+                     -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logo .NET Core -->
+                            <div class="flex justify-center mt-3 w-full">
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/NET_Core.png" alt="NestJS" class="w-20 h-20">
+                                </div>
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos .NET Core -->
+                                <p class="dotnet-line">
+                                    <span class="desc">Crear un nuevo proyecto Web API:</span><br>
+                                    <span class="command-dotnet">dotnet new webapi -n MiApp</span>
+                                </p>
+
+                                <p class="dotnet-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-dotnet">cd MiApp</span>
+                                </p>
+
+                                <p class="dotnet-line">
+                                    <span class="desc">Ejecutar aplicación:</span><br>
+                                    <span class="command-dotnet">dotnet run</span>
+                                </p>
+
+                                <p class="dotnet-line">
+                                    <span class="desc">Agregar un controlador:</span><br>
+                                    <span class="command-dotnet">dotnet add controller NombreControlador</span>
+                                </p>
+
+                                <p class="dotnet-line">
+                                    <span class="desc">Construir proyecto:</span><br>
+                                    <span class="command-dotnet">dotnet build</span>
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Botones -->
+            <button id="prevSlide"
+                class="prev-slide hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10094;
+            </button>
+            <button id="nextSlide"
+                class="next-slide hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10095;
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ===============   SLIDER DE SECCIONES frontend  ====================== -->
+    <section
+        class="overflow-hidden roadmap-section frontend-section relative min-h-screen flex items-center px-6 py-24">
+
+        <!-- Glow dinámico -->
+        <div class="glow"></div>
+
+        <!-- Línea vertical -->
+        <div class="line absolute left-1/2 top-0 w-1 h-0 opacity-0 rounded-full -translate-x-1/2"></div>
+
+        <!-- Contenedor del slider -->
+        <div class="slider-wrapper relative w-full overflow-hidden">
+
+            <div class="slider flex transition-transform duration-500">
+
+                <!-- Slide React -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 5:
+                            <span class="color-react">React - Next</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye interfaces interactivas con <span class="color-react font-semibold">ReactJS</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="cta-btn relative z-10 inline-block px-6 py-3 bg-[#61DAFB] text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscríbete Ahora
+                        </a>
+
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                        left-1/2 md:left-0
+                        w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                        -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Git y GitHub -->
+                            <div class="flex justify-center mt-3 w-full">
+
+                                <!-- LOGO MYSQL -->
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/React.svg" alt="Laravel" class="w-20 h-20">
+
+                                </div>
+
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos React con Vite -->
+                                <p class="react-line">
+                                    <span class="desc">Crear un nuevo proyecto React con Vite:</span><br>
+                                    <span class="command-react">npm create vite@latest nombre_proyecto</span>
+                                </p>
+
+                                <p class="react-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-react">cd nombre_proyecto</span>
+                                </p>
+
+                                <p class="react-line">
+                                    <span class="desc">Instalar dependencias:</span><br>
+                                    <span class="command-react">npm install</span>
+                                </p>
+
+                                <p class="react-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-react">npm run dev</span>
+                                </p>
+
+                                <p class="react-line">
+                                    <span class="desc">Abrir en navegador:</span><br>
+                                    <span class="command-react">Abrir http://localhost:5173</span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide Angular -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 5:
+                            <span class="color-angular">Angular</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye interfaces interactivas con <span
+                                class="color-angular font-semibold">Angular</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                     left-1/2 md:left-0
+                     w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                     -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logos de Spring Boot -->
+                            <div class="flex justify-center mt-3 w-full">
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/angular.png" alt="Angular" class="w-20 h-20">
+                                </div>
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos Angular -->
+                                <p class="angular-line">
+                                    <span class="desc">Instalar Angular CLI (si no lo tienes):</span><br>
+                                    <span class="command-angular">npm install -g @angular/cli</span>
+                                </p>
+
+                                <p class="angular-line">
+                                    <span class="desc">Crear un nuevo proyecto Angular:</span><br>
+                                    <span class="command-angular">ng new nombre_proyecto</span>
+                                </p>
+
+                                <p class="angular-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-angular">cd nombre_proyecto</span>
+                                </p>
+
+                                <p class="angular-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-angular">ng serve --open</span>
+                                </p>
+
+                                <p class="angular-line">
+                                    <span class="desc">Crear un componente:</span><br>
+                                    <span class="command-angular">ng generate component nombre-componente</span>
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide Vue -->
+                <div
+                    class="slider-slide min-w-full flex flex-col md:flex-row items-center md:gap-16 gap-10 mb-16 md:mb-0">
+                    <!-- Texto -->
+                    <div class="fade-slide text-center md:text-right md:flex-1 relative">
+                        <div class="absolute inset-0 md:hidden flex justify-center items-center">
+                            <div class="absolute -inset-4 bg-black/80 blur-xl rounded-full"></div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-5 relative z-10">
+                            Modulo 4:
+                            <span class="color-vue">Vue</span>
+                        </h2>
+                        <p
+                            class="md:text-lg text-sm max-w-md md:max-w-full md:text-right relative z-10 mb-6 text-gray-100">
+                            Construye interfaces interactivas con <span class="color-vue font-semibold">Vue</span>
+                        </p>
+                        <a href="#inscribete"
+                            class="relative z-10 inline-block px-6 py-3 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-lg transition-colors duration-300">
+                            Inscribete Ahora
+                        </a>
+                    </div>
+
+                    <!-- Card -->
+                    <div
+                        class="relative fade-slide md:flex-1 flex flex-col items-center md:items-start justify-center w-full">
+                        <!-- Círculo indicador -->
+                        <span class="absolute top-1/2 -translate-y-1/2 
+                     left-1/2 md:left-0
+                     w-7 h-7 rounded-full bg-yellow-500 shadow-xl shadow-yellow-500/60
+                     -translate-x-1/2 md:translate-x-0"></span>
+
+                        <div
+                            class="tilt bg-gray-900/60 border border-gray-700 p-2 md:p-8 rounded-xl backdrop-blur-xl w-full max-w-sm md:max-w-md flex flex-col gap-5">
+                            <!-- Logo NestJS -->
+                            <div class="flex justify-center mt-3 w-full">
+                                <div
+                                    class="relative p-0 md:p-2 rounded-xl flex items-center justify-center w-35 h-35 transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 bounce">
+                                    <!-- Halo difuso -->
+                                    <div class="absolute inset-0 rounded-full bg-black/100 blur-xl -z-10"></div>
+                                    <img src="./img/Vue.js.svg" alt="NestJS" class="w-20 h-20">
+                                </div>
+                            </div>
+
+                            <!-- Comandos del curso siempre visibles -->
+                            <div id="courseDetails"
+                                class="mt-3 flex flex-col gap-2 bg-gray-900/80 p-0 md:p-3 rounded-md font-mono text-xs md:text-sm">
+
+                                <!-- Circulitos de la consola -->
+                                <div class="flex gap-2 p-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+
+                                <!-- Comandos Vue con Vite -->
+                                <p class="vue-line">
+                                    <span class="desc">Crear un nuevo proyecto Vue con Vite:</span><br>
+                                    <span class="command-vue">npm create vite@latest nombre_proyecto</span>
+                                </p>
+
+                                <p class="vue-line">
+                                    <span class="desc">Ingresar al proyecto:</span><br>
+                                    <span class="command-vue">cd nombre_proyecto</span>
+                                </p>
+
+                                <p class="vue-line">
+                                    <span class="desc">Instalar dependencias:</span><br>
+                                    <span class="command-vue">npm install</span>
+                                </p>
+
+                                <p class="vue-line">
+                                    <span class="desc">Levantar servidor de desarrollo:</span><br>
+                                    <span class="command-vue">npm run dev</span>
+                                </p>
+
+                                <p class="vue-line">
+                                    <span class="desc">Abrir en navegador:</span><br>
+                                    <span class="command-vue">http://localhost:5173</span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botones -->
+            <button id="prevSlide"
+                class="prev-slide hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10094;
+            </button>
+            <button id="nextSlide"
+                class="next-slide hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full shadow-lg transition-all duration-300">
+                &#10095;
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="./js/script.js"></script>
+
 </body>
+
 </html>
