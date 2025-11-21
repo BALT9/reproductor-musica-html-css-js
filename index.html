@@ -11,134 +11,132 @@
 
 <body class="bg-gray-950 text-white">
 
-    <!-- ================= Hero Section ================= -->
-    <section
-        class="hero-section w-full h-screen flex flex-col justify-center items-center bg-gray-900 relative overflow-hidden">
+    <section class="overflow-hidden roadmap-section relative min-h-screen flex items-center px-6 py-24">
 
-        <!-- Líneas decorativas (alineadas con roadmap) -->
-        <div
-            class="hero-lines absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-blue-500">
-        </div>
+        <!-- Logo de la empresa en la esquina -->
+        <img src="./img/logo-blumbit.png"
+            class="absolute top-6 right-[2.5rem] md:right-[3.75rem] w-24 md:w-32 h-auto z-20">
 
-        <!-- Contenedor principal -->
-        <div class="hero-content text-center relative z-10 max-w-4xl px-4">
 
-            <!-- Título principal -->
-            <h1 class="hero-title text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
-                Curso de Especialización en:<br>
-                <span class="text-cyan-400">Desarrollo Web FullStack</span>
-            </h1>
+        <!-- GLOW rosa -->
+        <div class="glow bg-pink-500"></div>
 
-            <!-- Subtítulo profesional -->
-            <p class="hero-subtitle mb-8">
-                <span class="status-live">En vivo</span> &nbsp;|&nbsp;
-                <span class="date">24 de Noviembre</span> &nbsp;|&nbsp;
-                <span class="duration">3.5 meses</span> &nbsp;|&nbsp;
-                <strong class="limited">Cupo Limitado</strong>
+
+        <!-- Hero Content (relative para que la línea se posicione respecto al botón) -->
+        <div class="text-center max-w-4xl mx-auto z-10 relative">
+
+            <div class="w-full sm:w-auto text-center sm:text-left mx-auto">
+
+                <!-- Texto pequeño más grande y misma letra que el título -->
+                <p class="text-xl md:text-2xl lg:text-2xl font-bold tracking-wide mb-1 text-white">
+                    Curso de especialización en:
+                </p>
+
+                <h1 class="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
+                    Desarrollo Web FullStack
+                </h1>
+
+            </div>
+
+            <p class="text-base md:text-xl text-gray-300 mb-8 text-center">
+                ¡Inscríbete ahora y domina el FullStack! ¡Aprende desde cualquier lugar del mundo!
             </p>
 
-            <!-- Botón de inscripción -->
-            <a href="#inscribete"
-                class="cta-btn inline-block px-8 py-4 bg-cyan-400 text-gray-900 font-semibold rounded-lg shadow-lg transition-all duration-300 hover:bg-blue-500 hover:shadow-blue-500">
-                Inscríbete Ahora
+            <!-- Datos adicionales mejorados sin iconos -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+
+                <!-- Inicio -->
+                <div
+                    class="bg-pink-900/20 text-pink-100 text-sm md:text-base px-2 md:px-4 py-1 md:py-2 rounded-lg shadow-md transition transform hover:scale-105">
+                    <strong>Inicio:</strong> 01/12/2025
+                </div>
+
+                <!-- Modalidad -->
+                <div
+                    class="bg-pink-900/30 text-pink-100 text-sm md:text-base px-2 md:px-4 py-1 md:py-2 rounded-lg shadow-md transition transform hover:scale-105">
+                    <strong>Modalidad:</strong> Online
+                </div>
+
+                <!-- Duración -->
+                <div
+                    class="bg-pink-900/30 text-pink-100 text-sm md:text-base px-2 md:px-4 py-1 md:py-2 rounded-lg shadow-md transition transform hover:scale-105">
+                    <strong>Duración:</strong> 12 semanas
+                </div>
+
+            </div>
+
+
+            <!-- Cards pequeñas para logos de tecnologías -->
+            <div class="grid grid-cols-6 gap-2 md:gap-4 mb-8 w-full md:w-1/2 mx-auto justify-items-center">
+
+                <!-- Fila 1 -->
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/Git.svg" alt="Git" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/docker-mark-blue.png" alt="Docker" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/logo-mysql-170x115.png" alt="MySQL" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/postgresql.png" alt="PostgreSQL" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/MongoDB.png" alt="MongoDB" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/Laravel.png" alt="Laravel" class="max-w-full max-h-full object-contain">
+                </div>
+
+                <!-- Fila 2 -->
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/spring-boot-1.svg" alt="Spring Boot" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/nest-ofi.svg" alt="NestJS" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/NET_Core.png" alt=".NET Core" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/React.svg" alt="React" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/angular.png" alt="Angular" class="max-w-full max-h-full object-contain">
+                </div>
+                <div
+                    class="bg-gray-800/50 p-2 sm:p-4 rounded-lg shadow-md w-12 md:w-16 h-12 md:h-16 flex items-center justify-center">
+                    <img src="./img/Vue.js.svg" alt="Vue.js" class="max-w-full max-h-full object-contain">
+                </div>
+
+            </div>
+
+            <a id="start-line" href="#contact"
+                class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-semibold px-8 py-4 rounded-lg transition transform hover:scale-105 relative z-10 ">
+                Comencemos
             </a>
 
+            <!-- Línea vertical comenzando desde el botón -->
+            <div class="line absolute left-1/2 w-1 bg-pink-500 rounded-full opacity-50 -translate-x-1/2"
+                style="top: calc(100%); height: 300px;">
+            </div>
+
         </div>
 
-        <!-- Fondo difuso decorativo -->
-        <div
-            class="absolute inset-0 bg-gradient-to-b from-cyan-500/20 via-blue-500/10 to-transparent blur-3xl pointer-events-none">
-        </div>
 
     </section>
-
-    <!-- ================= Estilos ================= -->
-    <style>
-        .hero-section {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Líneas verticales tipo roadmap */
-        .hero-lines {
-            width: 4px;
-            border-radius: 2px;
-        }
-
-        /* Título principal */
-        .hero-title {
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Subtítulo */
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            /* gris claro */
-            font-weight: 500;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-        }
-
-        /* Colores específicos para resaltar info */
-        .status-live {
-            color: #f87171;
-            /* rojo suave */
-            font-weight: 700;
-        }
-
-        .date {
-            color: #facc15;
-            /* amarillo */
-            font-weight: 600;
-        }
-
-        .duration {
-            color: #34d399;
-            /* verde */
-            font-weight: 600;
-        }
-
-        .limited {
-            color: #f472b6;
-            /* rosa destacado */
-            font-weight: 700;
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Animación del "Cupo Limitado" */
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.8;
-                transform: scale(1.05);
-            }
-        }
-
-        /* Botón de inscripción */
-        .cta-btn {
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px) scale(1.05);
-        }
-
-        /* Fondo difuso */
-        .hero-section>div.absolute.inset-0 {
-            z-index: 0;
-        }
-    </style>
 
 
     <!-- ===============   SECCIÓN 1   ====================== -->
